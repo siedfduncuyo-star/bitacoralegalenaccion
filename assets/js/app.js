@@ -1,124 +1,169 @@
 (() => {
   const DATA = window.BITACORA_PUBLICACIONES || [];
-  const $ = (s) => document.querySelector(s);
-  const $$ = (s) => [...document.querySelectorAll(s)];
-  const normalize = (s='') => s.toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  const $ = (selector) => document.querySelector(selector);
+  const $$ = (selector) => [...document.querySelectorAll(selector)];
+
+  const normalize = (value = '') => value
+    .toString()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9ñü\s]/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 
   const searchInput = $('#searchInput');
-  const areaFilter = $('#areaFilter');
-  const authorFilter = $('#authorFilter');
-  const sortFilter = $('#sortFilter');
   const results = $('#results');
   const resultCount = $('#resultCount');
   const emptyState = $('#emptyState');
   const loadMore = $('#loadMore');
-  const activeFilter = $('#activeFilter');
-  const clearFilters = $('#clearFilters');
   const categoryGrid = $('#categoryGrid');
   const categoryCount = $('#categoryCount');
+  const catalog = $('#catalogo');
   let visibleCount = 12;
-  const params = new URLSearchParams(window.location.search);
-  const initialArea = params.get('area');
+  let selectedCategory = '';
 
-  const allAreas = [...new Set(DATA.flatMap(p => p.areas))].sort((a,b)=>a.localeCompare(b,'es'));
-  const allAuthors = [...new Set(DATA.flatMap(p => p.authors))].sort((a,b)=>a.localeCompare(b,'es'));
+  if (!searchInput || !results || !resultCount || !emptyState || !loadMore || !categoryGrid) {
+    console.error('Bitácora: faltan elementos necesarios para iniciar el catálogo.');
+    return;
+  }
 
-  allAreas.forEach(area => areaFilter.insertAdjacentHTML('beforeend', `<option value="${escapeAttr(area)}">${escapeHtml(area)}</option>`));
-  allAuthors.forEach(author => authorFilter.insertAdjacentHTML('beforeend', `<option value="${escapeAttr(author)}">${escapeHtml(author)}</option>`));
-  if(initialArea && allAreas.includes(initialArea)) areaFilter.value = initialArea;
+  const allAreas = [...new Set(DATA.flatMap(publication => publication.areas || []))]
+    .sort((a, b) => a.localeCompare(b, 'es'));
 
-  const counts = new Map(allAreas.map(a => [a, DATA.filter(p => p.areas.includes(a)).length]));
+  const counts = new Map(
+    allAreas.map(area => [area, DATA.filter(publication => (publication.areas || []).includes(area)).length])
+  );
+
   categoryCount.textContent = `${allAreas.length} categorías con publicaciones`;
   categoryGrid.innerHTML = allAreas.map(area => {
     const count = counts.get(area);
-    return `<button class="category-card" type="button" data-area="${escapeAttr(area)}"><div><span class="category-mark" aria-hidden="true"></span><strong>${escapeHtml(area)}</strong></div><small>${count} ${count === 1 ? 'publicación' : 'publicaciones'} →</small></button>`;
+    return `
+      <button class="category-card" type="button" data-area="${escapeAttr(area)}" aria-label="Buscar publicaciones de ${escapeAttr(area)}">
+        <div>
+          <span class="category-mark" aria-hidden="true"></span>
+          <strong>${escapeHtml(area)}</strong>
+        </div>
+        <small>${count} ${count === 1 ? 'publicación' : 'publicaciones'} →</small>
+      </button>`;
   }).join('');
 
-  function filteredData(){
-    const q = normalize(searchInput.value.trim());
-    let items = DATA.filter(p => {
-      const haystack = normalize([p.title, p.authors.join(' '), p.areas.join(' '), p.year || '', p.searchText || ''].join(' '));
-      return (!q || haystack.includes(q)) &&
-             (!areaFilter.value || p.areas.includes(areaFilter.value)) &&
-             (!authorFilter.value || p.authors.includes(authorFilter.value));
-    });
-    if(sortFilter.value === 'title') items.sort((a,b)=>a.title.localeCompare(b.title,'es'));
-    if(sortFilter.value === 'author') items.sort((a,b)=>(a.authors[0]||'').localeCompare(b.authors[0]||'','es'));
-    if(sortFilter.value === 'area') items.sort((a,b)=>(a.areas[0]||'').localeCompare(b.areas[0]||'','es'));
-    return items;
+  function getSearchTerms() {
+    return normalize(searchInput.value).split(' ').filter(Boolean);
   }
 
-  function render(reset=false){
-    if(reset) visibleCount = 12;
+  function filteredData() {
+    const terms = getSearchTerms();
+    const items = DATA.filter(publication => {
+      if (selectedCategory && !(publication.areas || []).includes(selectedCategory)) return false;
+      if (!terms.length) return true;
+      const haystack = normalize([
+        publication.title,
+        ...(publication.authors || []),
+        ...(publication.areas || []),
+        publication.year || '',
+        publication.excerpt || '',
+        publication.searchText || ''
+      ].join(' '));
+      return terms.every(term => haystack.includes(term));
+    });
+
+    return items.sort((a, b) => a.title.localeCompare(b.title, 'es'));
+  }
+
+  function render(reset = false) {
+    if (reset) visibleCount = 12;
     const items = filteredData();
     const shown = items.slice(0, visibleCount);
-    resultCount.textContent = `${items.length} ${items.length === 1 ? 'publicación' : 'publicaciones'}`;
+
+    resultCount.textContent = selectedCategory
+      ? `${items.length} ${items.length === 1 ? 'publicación' : 'publicaciones'} en ${selectedCategory}`
+      : `${items.length} ${items.length === 1 ? 'publicación' : 'publicaciones'}`;
     emptyState.hidden = items.length !== 0;
-    results.innerHTML = shown.map(p => `
+
+    results.innerHTML = shown.map(publication => `
       <article class="result-item">
         <div>
-          <h3><a href="${escapeAttr(p.localUrl)}">${escapeHtml(p.title)}</a></h3>
-          <div class="result-meta">${p.areas.map(a=>`<button type="button" class="category-chip" data-pick-area="${escapeAttr(a)}">${escapeHtml(a)}</button>`).join('')}${p.year ? `<span class="year-chip">${escapeHtml(p.year)}</span>` : ''}</div>
+          <h3><a href="${escapeAttr(publication.localUrl)}">${escapeHtml(publication.title)}</a></h3>
+          <div class="result-meta">
+            ${(publication.areas || []).map(area => `<span class="category-chip">${escapeHtml(area)}</span>`).join('')}
+            ${publication.year ? `<span class="year-chip">${escapeHtml(publication.year)}</span>` : ''}
+          </div>
         </div>
-        <div class="author-block"><span>${p.authors.length > 1 ? 'Autores/as' : 'Autor/a'}</span>${p.authors.map(a=>`<button type="button" class="author-button" data-pick-author="${escapeAttr(a)}">${escapeHtml(a)}</button>`).join('')}</div>
-        <a class="open-link" href="${escapeAttr(p.localUrl)}" aria-label="Abrir ${escapeAttr(p.title)}">↗</a>
+        <div class="author-block">
+          <span>${(publication.authors || []).length > 1 ? 'Autores/as' : 'Autor/a'}</span>
+          ${(publication.authors || []).map(author => `<strong class="author-name">${escapeHtml(author)}</strong>`).join('')}
+        </div>
+        <a class="open-link" href="${escapeAttr(publication.localUrl)}" aria-label="Abrir ${escapeAttr(publication.title)}">↗</a>
       </article>`).join('');
+
     loadMore.hidden = visibleCount >= items.length || items.length === 0;
-    updateActiveFilter();
-    bindResultButtons();
+    updateCategoryState();
   }
 
-  function updateActiveFilter(){
-    const parts=[];
-    if(searchInput.value.trim()) parts.push(`Búsqueda: “${searchInput.value.trim()}”`);
-    if(areaFilter.value) parts.push(areaFilter.value);
-    if(authorFilter.value) parts.push(authorFilter.value);
-    if(parts.length){activeFilter.hidden=false;activeFilter.textContent=parts.join(' · ')} else {activeFilter.hidden=true;activeFilter.textContent=''}
+  function updateCategoryState() {
+    $$('.category-card').forEach(button => {
+      const selected = selectedCategory === button.dataset.area;
+      button.classList.toggle('selected', selected);
+      button.setAttribute('aria-pressed', selected ? 'true' : 'false');
+    });
   }
 
-  function bindResultButtons(){
-    $$('[data-pick-area]').forEach(btn => btn.addEventListener('click', () => {
-      areaFilter.value = btn.dataset.pickArea; render(true); $('#publicaciones').scrollIntoView({behavior:'smooth'});
-    }));
-    $$('[data-pick-author]').forEach(btn => btn.addEventListener('click', () => {
-      authorFilter.value = btn.dataset.pickAuthor; render(true); $('#publicaciones').scrollIntoView({behavior:'smooth'});
-    }));
-  }
-
-  searchInput.addEventListener('input', () => render(true));
-  areaFilter.addEventListener('change', () => render(true));
-  authorFilter.addEventListener('change', () => render(true));
-  sortFilter.addEventListener('change', () => render(true));
-  clearFilters.addEventListener('click', () => {
-    searchInput.value=''; areaFilter.value=''; authorFilter.value=''; sortFilter.value='title'; render(true); searchInput.focus();
+  searchInput.addEventListener('input', () => {
+    selectedCategory = '';
+    render(true);
   });
-  loadMore.addEventListener('click', () => { visibleCount += 12; render(false); });
-  $$('.category-card').forEach(btn => btn.addEventListener('click', () => {
-    areaFilter.value = btn.dataset.area; render(true); $('#publicaciones').scrollIntoView({behavior:'smooth'});
+  searchInput.addEventListener('search', () => {
+    selectedCategory = '';
+    render(true);
+  });
+
+  loadMore.addEventListener('click', () => {
+    visibleCount += 12;
+    render(false);
+  });
+
+  $$('.category-card').forEach(button => button.addEventListener('click', () => {
+    const area = button.dataset.area;
+    selectedCategory = selectedCategory === area ? '' : area;
+    searchInput.value = '';
+    render(true);
+    if (catalog) catalog.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }));
 
   const menuButton = $('#menuButton');
   const mobileNav = $('#mobileNav');
-  menuButton.addEventListener('click', () => {
-    const open = mobileNav.classList.toggle('open');
-    menuButton.setAttribute('aria-expanded', String(open));
-    menuButton.textContent = open ? 'Cerrar' : 'Menú';
-  });
-  $$('#mobileNav a').forEach(a => a.addEventListener('click', () => {
-    mobileNav.classList.remove('open'); menuButton.setAttribute('aria-expanded','false'); menuButton.textContent='Menú';
-  }));
+  if (menuButton && mobileNav) {
+    menuButton.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.textContent = open ? 'Cerrar' : 'Menú';
+    });
+    $$('#mobileNav a').forEach(link => link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.textContent = 'Menú';
+    }));
+  }
 
-  document.addEventListener('keydown', e => {
-    if(e.key === '/' && document.activeElement?.tagName !== 'INPUT' && document.activeElement?.tagName !== 'SELECT'){
-      e.preventDefault(); searchInput.focus();
+  document.addEventListener('keydown', event => {
+    if (event.key === '/' && document.activeElement?.tagName !== 'INPUT') {
+      event.preventDefault();
+      searchInput.focus();
     }
   });
 
-  function escapeHtml(value=''){
-    return value.toString().replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
+  function escapeHtml(value = '') {
+    return value.toString().replace(/[&<>"]/g, character => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;'
+    }[character]));
   }
-  function escapeAttr(value=''){
-    return escapeHtml(value).replace(/'/g,'&#39;');
+
+  function escapeAttr(value = '') {
+    return escapeHtml(value).replace(/'/g, '&#39;');
   }
 
   render(true);

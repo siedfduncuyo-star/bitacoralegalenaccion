@@ -25,3 +25,7 @@ Una vez validado el sitio, el dominio `bitacoralegal.derecho.uncu.edu.ar` puede 
 
 ## Fuente de la migración
 Exportación Google Takeout recibida el 20/08/2026.
+
+
+## Búsqueda
+La portada utiliza una única caja de búsqueda. Las tarjetas de categorías funcionan como accesos directos: al seleccionarlas, cargan el nombre del área en la búsqueda y muestran el catálogo correspondiente.

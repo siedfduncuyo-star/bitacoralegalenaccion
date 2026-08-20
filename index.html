@@ -59,25 +59,6 @@
           <input id="searchInput" type="search" autocomplete="off" placeholder="Ej.: Pérez, inteligencia artificial, familia, honorarios…">
           <kbd>⌕</kbd>
         </label>
-        <div class="filters" aria-label="Filtros de publicaciones">
-          <label>
-            <span>Área</span>
-            <select id="areaFilter"><option value="">Todas las áreas</option></select>
-          </label>
-          <label>
-            <span>Autor/a</span>
-            <select id="authorFilter"><option value="">Todos/as los autores/as</option></select>
-          </label>
-          <label>
-            <span>Ordenar</span>
-            <select id="sortFilter">
-              <option value="title">Título A–Z</option>
-              <option value="author">Autor/a A–Z</option>
-              <option value="area">Área A–Z</option>
-            </select>
-          </label>
-          <button class="clear-button" id="clearFilters" type="button">Limpiar filtros</button>
-        </div>
       </div>
     </div>
   </section>
@@ -95,7 +76,7 @@
     </div>
   </section>
 
-  <section class="catalog-section" aria-labelledby="catalog-title">
+  <section class="catalog-section" id="catalogo" aria-labelledby="catalog-title">
     <div class="container">
       <div class="catalog-heading">
         <div>
@@ -104,7 +85,6 @@
         </div>
         <p class="result-count" id="resultCount" aria-live="polite"></p>
       </div>
-      <div class="active-filter" id="activeFilter" hidden></div>
       <div class="results" id="results"></div>
       <div class="empty-state" id="emptyState" hidden>
         <strong>No encontramos publicaciones con esos criterios.</strong>
