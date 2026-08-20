@@ -3,6 +3,31 @@
   const $ = (selector) => document.querySelector(selector);
   const $$ = (selector) => [...document.querySelectorAll(selector)];
 
+  const ALL_CATEGORIES = [
+    'Derecho Administrativo',
+    'Derecho Civil y Comercial',
+    'Derecho Constitucional',
+    'Derecho de Familia y Sucesorio',
+    'Derecho de los Recursos Naturales, Aguas; y Protección del Medio Ambiente',
+    'Derecho del Consumidor y Defensa de la Competencia',
+    'Derecho del Trabajo y la Seguridad Social',
+    'Derecho Informático',
+    'Derecho Internacional',
+    'Derecho Penal',
+    'Derecho Político',
+    'Derecho Procesal',
+    'Derecho Registral y Notarial',
+    'Derechos Humanos',
+    'Derechos Reales',
+    'Enseñanza del Derecho',
+    'Filosofía del Derecho',
+    'Mediación',
+    'Miscelánea',
+    'Pluralismo Jurídico y Gobernanza',
+    'Sociología del Derecho',
+    'Tecnologías aplicadas al Derecho'
+  ].sort((a, b) => a.localeCompare(b, 'es'));
+
   const normalize = (value = '') => value
     .toString()
     .toLowerCase()
@@ -19,27 +44,42 @@
   const loadMore = $('#loadMore');
   const categoryGrid = $('#categoryGrid');
   const categoryCount = $('#categoryCount');
-  const catalog = $('#catalogo');
+
   let visibleCount = 12;
   let selectedCategory = '';
+  let searchTimer = null;
 
   if (!searchInput || !results || !resultCount || !emptyState || !loadMore || !categoryGrid) {
     console.error('Bitácora: faltan elementos necesarios para iniciar el catálogo.');
     return;
   }
 
-  const allAreas = [...new Set(DATA.flatMap(publication => publication.areas || []))]
-    .sort((a, b) => a.localeCompare(b, 'es'));
+  // Prepara una sola vez el texto de búsqueda. Evita normalizar artículos completos
+  // en cada tecla y hace que el buscador sea mucho más rápido en celular.
+  const INDEXED_DATA = DATA.map(publication => ({
+    ...publication,
+    _searchKey: normalize([
+      publication.title,
+      ...(publication.authors || []),
+      ...(publication.areas || []),
+      publication.year || '',
+      publication.excerpt || '',
+      publication.searchText || ''
+    ].join(' '))
+  }));
 
   const counts = new Map(
-    allAreas.map(area => [area, DATA.filter(publication => (publication.areas || []).includes(area)).length])
+    ALL_CATEGORIES.map(area => [
+      area,
+      DATA.filter(publication => (publication.areas || []).includes(area)).length
+    ])
   );
 
-  categoryCount.textContent = `${allAreas.length} categorías con publicaciones`;
-  categoryGrid.innerHTML = allAreas.map(area => {
-    const count = counts.get(area);
+  categoryCount.textContent = `${ALL_CATEGORIES.length} categorías`;
+  categoryGrid.innerHTML = ALL_CATEGORIES.map(area => {
+    const count = counts.get(area) || 0;
     return `
-      <button class="category-card" type="button" data-area="${escapeAttr(area)}" aria-label="Buscar publicaciones de ${escapeAttr(area)}">
+      <button class="category-card" type="button" data-area="${escapeAttr(area)}" aria-label="Mostrar publicaciones de ${escapeAttr(area)}" aria-pressed="false">
         <div>
           <span class="category-mark" aria-hidden="true"></span>
           <strong>${escapeHtml(area)}</strong>
@@ -54,21 +94,13 @@
 
   function filteredData() {
     const terms = getSearchTerms();
-    const items = DATA.filter(publication => {
-      if (selectedCategory && !(publication.areas || []).includes(selectedCategory)) return false;
-      if (!terms.length) return true;
-      const haystack = normalize([
-        publication.title,
-        ...(publication.authors || []),
-        ...(publication.areas || []),
-        publication.year || '',
-        publication.excerpt || '',
-        publication.searchText || ''
-      ].join(' '));
-      return terms.every(term => haystack.includes(term));
-    });
-
-    return items.sort((a, b) => a.title.localeCompare(b.title, 'es'));
+    return INDEXED_DATA
+      .filter(publication => {
+        if (selectedCategory && !(publication.areas || []).includes(selectedCategory)) return false;
+        if (!terms.length) return true;
+        return terms.every(term => publication._searchKey.includes(term));
+      })
+      .sort((a, b) => a.title.localeCompare(b.title, 'es'));
   }
 
   function render(reset = false) {
@@ -76,9 +108,14 @@
     const items = filteredData();
     const shown = items.slice(0, visibleCount);
 
-    resultCount.textContent = selectedCategory
-      ? `${items.length} ${items.length === 1 ? 'publicación' : 'publicaciones'} en ${selectedCategory}`
-      : `${items.length} ${items.length === 1 ? 'publicación' : 'publicaciones'}`;
+    if (selectedCategory) {
+      resultCount.textContent = `${selectedCategory} · ${items.length} ${items.length === 1 ? 'publicación' : 'publicaciones'}`;
+    } else if (getSearchTerms().length) {
+      resultCount.textContent = `${items.length} ${items.length === 1 ? 'resultado' : 'resultados'}`;
+    } else {
+      resultCount.textContent = `${items.length} ${items.length === 1 ? 'publicación' : 'publicaciones'}`;
+    }
+
     emptyState.hidden = items.length !== 0;
 
     results.innerHTML = shown.map(publication => `
@@ -109,10 +146,13 @@
     });
   }
 
+  // Búsqueda libre: al escribir, se quita cualquier categoría seleccionada.
   searchInput.addEventListener('input', () => {
     selectedCategory = '';
-    render(true);
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => render(true), 90);
   });
+
   searchInput.addEventListener('search', () => {
     selectedCategory = '';
     render(true);
@@ -123,13 +163,18 @@
     render(false);
   });
 
-  $$('.category-card').forEach(button => button.addEventListener('click', () => {
-    const area = button.dataset.area;
+  // Delegación de eventos: funciona aunque las categorías se generen dinámicamente.
+  categoryGrid.addEventListener('click', (event) => {
+    const button = event.target.closest('.category-card');
+    if (!button) return;
+
+    const area = button.dataset.area || '';
     selectedCategory = selectedCategory === area ? '' : area;
     searchInput.value = '';
     render(true);
-    if (catalog) catalog.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }));
+
+    // Importante: NO hacemos scroll. El usuario permanece en la categoría elegida.
+  });
 
   const menuButton = $('#menuButton');
   const mobileNav = $('#mobileNav');

@@ -246,3 +246,6 @@ details[open] summary::after{content:"–"}
   .author-profile{padding:1rem 1.05rem}
   .article-footer .footer-top{gap:2rem}
 }
+
+.catalog-count-only{display:flex;justify-content:flex-end;align-items:center;border-bottom:1px solid var(--navy);padding-bottom:14px;margin-bottom:0}
+@media (max-width:720px){.catalog-count-only{justify-content:flex-start}}
