@@ -1,0 +1,611 @@
+{
+  "articles_generated": 67,
+  "min_match_score": 0.876,
+  "with_year": 67,
+  "images_copied": 9,
+  "articles": [
+    {
+      "id": 1,
+      "slug": "el-reconocimiento-de-la-filiacion-post-mortem-un-camino-dificil",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/El reconocimiento de la filiacin post mortem Un.html",
+      "score": 1.0,
+      "year": "2023",
+      "chars": 26747,
+      "headings": 6
+    },
+    {
+      "id": 2,
+      "slug": "la-planificacion-sucesoria-alternativas-para-facilitar-el-proceso-sucesorio",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/La planificacin sucesoria Alternativas para.html",
+      "score": 0.986,
+      "year": "2024",
+      "chars": 24483,
+      "headings": 8
+    },
+    {
+      "id": 3,
+      "slug": "derecho-de-habitacion-del-conyuge-y-conviviente-superstite-unificacion-o-diversificacion-de-su-regimen",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Derecho de habitacin del cnyuge y conviviente.html",
+      "score": 0.98,
+      "year": "2024",
+      "chars": 33464,
+      "headings": 15
+    },
+    {
+      "id": 4,
+      "slug": "mi-experiencia-con-los-casos-ad-hoc-en-derecho-de-familia-un-analisis-con-perspectiva-de-genero",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Mi experiencia con los casos ad hoc en derecho de.html",
+      "score": 0.98,
+      "year": "2023",
+      "chars": 25328,
+      "headings": 6
+    },
+    {
+      "id": 5,
+      "slug": "la-importancia-de-la-legitimacion-relacional-en-el-proceso-de-mediacion-familiar",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/La importancia de la legitimacin relacional en el.html",
+      "score": 0.98,
+      "year": "2023",
+      "chars": 23875,
+      "headings": 12
+    },
+    {
+      "id": 6,
+      "slug": "derecho-de-visita-y-custodia-de-los-hijos",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Derecho de visita y custodia de los hijos.html",
+      "score": 1.0,
+      "year": "2023",
+      "chars": 46504,
+      "headings": 10
+    },
+    {
+      "id": 7,
+      "slug": "diferencias-entre-el-ministerio-publico-fiscal-y-el-ministerio-publico-de-la-defensa-de-mendoza",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Diferencias entre el Ministerio Pblico Fiscal y el.html",
+      "score": 0.876,
+      "year": "2024",
+      "chars": 24516,
+      "headings": 10
+    },
+    {
+      "id": 8,
+      "slug": "consentimiento-fiscal-en-la-suspension-de-juicio-a-prueba-imputados-como-extras-del-show-punitivo",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Consentimiento fiscal en la suspensin de juicio a.html",
+      "score": 0.98,
+      "year": "2023",
+      "chars": 32904,
+      "headings": 6
+    },
+    {
+      "id": 9,
+      "slug": "dato-de-color-aun-persiste-la-teoria-lombrosiana",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Dato de color An persiste la teora lombrosiana.html",
+      "score": 1.0,
+      "year": "2023",
+      "chars": 31636,
+      "headings": 10
+    },
+    {
+      "id": 10,
+      "slug": "la-declaracion-indagatoria-en-el-proceso-penal-federal",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/La declaracin indagatoria en el proceso penal.html",
+      "score": 1.0,
+      "year": "2023",
+      "chars": 39843,
+      "headings": 13
+    },
+    {
+      "id": 11,
+      "slug": "la-debida-diligencia-para-prevenir-el-lavado-de-activos",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/La debida diligencia para prevenir el lavado de.html",
+      "score": 1.0,
+      "year": "2023",
+      "chars": 10153,
+      "headings": 9
+    },
+    {
+      "id": 12,
+      "slug": "el-derecho-administrativo-y-la-inteligencia-artificial-trabajando-en-equipo",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/El Derecho Administrativo y la Inteligencia.html",
+      "score": 1.0,
+      "year": "2024",
+      "chars": 33708,
+      "headings": 9
+    },
+    {
+      "id": 13,
+      "slug": "dnu-70-2023-la-administracion-regulando-las-obligaciones-contraidas-en-moneda-extranjera",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/DNU 702023 La Administracin regulando las.html",
+      "score": 0.98,
+      "year": "2025",
+      "chars": 18138,
+      "headings": 6
+    },
+    {
+      "id": 14,
+      "slug": "hacia-una-nueva-ley-de-discapacidad",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Hacia una nueva ley de discapacidad  Mara Luz.html",
+      "score": 0.99,
+      "year": "2024",
+      "chars": 30204,
+      "headings": 11
+    },
+    {
+      "id": 15,
+      "slug": "responsabilidad-objetiva-y-causales-de-eximicion-del-titular-registral",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Responsabilidad objetiva y causales de eximicin.html",
+      "score": 1.0,
+      "year": "2023",
+      "chars": 32454,
+      "headings": 10
+    },
+    {
+      "id": 16,
+      "slug": "la-sas-y-el-nuevo-derecho-societario",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/La SAS y el nuevo derecho societario.html",
+      "score": 1.0,
+      "year": "2023",
+      "chars": 32074,
+      "headings": 14
+    },
+    {
+      "id": 17,
+      "slug": "violencia-de-genero-y-su-abordaje-en-mendoza",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Violencia de Gnero y su abordaje en Mendoza.html",
+      "score": 1.0,
+      "year": "2024",
+      "chars": 38838,
+      "headings": 16
+    },
+    {
+      "id": 18,
+      "slug": "espionaje-masivo-y-su-impacto-en-la-era-tecnologica",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Espionaje Masivo y su impacto en la era tecnolgica.html",
+      "score": 1.0,
+      "year": "2024",
+      "chars": 25554,
+      "headings": 8
+    },
+    {
+      "id": 19,
+      "slug": "la-esi-educacion-sexual-integral-como-abanico-de-derechos",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/La ESI educacin sexual integral como abanico de.html",
+      "score": 1.0,
+      "year": "2024",
+      "chars": 25804,
+      "headings": 16
+    },
+    {
+      "id": 20,
+      "slug": "contratos-inteligentes-un-nuevo-desafio-para-la-legislacion-argentina",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Contratos inteligentes Un nuevo desafo para la.html",
+      "score": 1.0,
+      "year": "2024",
+      "chars": 45727,
+      "headings": 15
+    },
+    {
+      "id": 21,
+      "slug": "apuestas-y-manipulacion-de-resultados-en-el-deporte-una-mirada-critica-desde-el-punto-de-vista-juridico",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Apuestas y manipulacion de resultados en el.html",
+      "score": 0.98,
+      "year": "2025",
+      "chars": 46694,
+      "headings": 12
+    },
+    {
+      "id": 22,
+      "slug": "invasion-del-inmueble-colindante-su-analisis-en-el-codigo-civil-y-comercial",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Invasin del inmueble colindante su anlisis en el.html",
+      "score": 0.993,
+      "year": "2026",
+      "chars": 28222,
+      "headings": 20
+    },
+    {
+      "id": 23,
+      "slug": "la-prioridad-registral-en-materia-automotor-en-argentina",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/La prioridad registral en materia automotor en.html",
+      "score": 1.0,
+      "year": "2023",
+      "chars": 30616,
+      "headings": 9
+    },
+    {
+      "id": 24,
+      "slug": "repeticion-entre-companias-aseguradoras",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Repeticin entre compaas aseguradoras.html",
+      "score": 1.0,
+      "year": "2023",
+      "chars": 23984,
+      "headings": 6
+    },
+    {
+      "id": 25,
+      "slug": "el-proceso-judicial-en-el-fuero-civil",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/El proceso judicial en el fuero civil.html",
+      "score": 1.0,
+      "year": "2023",
+      "chars": 24009,
+      "headings": 13
+    },
+    {
+      "id": 26,
+      "slug": "desentranando-el-capital-social-un-elemento-esencial",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Desentraando el capital social un elemento.html",
+      "score": 1.0,
+      "year": "2023",
+      "chars": 31044,
+      "headings": 15
+    },
+    {
+      "id": 27,
+      "slug": "responsabilidad-de-la-direccion-general-de-escuelas-como-titular-de-los-establecimientos-educativos-de-ge",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Responsabilidad de la Direccin General de Escuelas.html",
+      "score": 0.98,
+      "year": "2023",
+      "chars": 19379,
+      "headings": 8
+    },
+    {
+      "id": 28,
+      "slug": "el-procedimiento-de-resolucion-vial-en-juzgado-de-transito",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/El procedimiento de resolucin vial en juzgado de.html",
+      "score": 1.0,
+      "year": "2023",
+      "chars": 23655,
+      "headings": 13
+    },
+    {
+      "id": 29,
+      "slug": "eutanasia-legal-un-analisis-profundo-morir-en-paz-es-un-derecho",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Eutanasia legal un anlisis profundo.html",
+      "score": 0.98,
+      "year": "2023",
+      "chars": 19109,
+      "headings": 10
+    },
+    {
+      "id": 30,
+      "slug": "el-abc-de-los-negocios-inmobiliarios-guia-para-comprar-una-casa-sin-perderse-en-el-proceso",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/El ABC de los negocios inmobiliarios gua para.html",
+      "score": 0.98,
+      "year": "2023",
+      "chars": 27099,
+      "headings": 6
+    },
+    {
+      "id": 31,
+      "slug": "el-contrato-de-fideicomiso-en-el-codigo-civil-y-comercial-de-la-nacion-y-su-proyeccion-sobre-los-criptoac",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/El contrato de fideicomiso en el Cdigo Civil y.html",
+      "score": 0.98,
+      "year": "2026",
+      "chars": 35779,
+      "headings": 28
+    },
+    {
+      "id": 32,
+      "slug": "el-impacto-de-la-oralidad-en-el-proceso-civil-y-comercial-de-mendoza",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/El impacto de la oralidad en el proceso civil y.html",
+      "score": 1.0,
+      "year": "2026",
+      "chars": 40328,
+      "headings": 28
+    },
+    {
+      "id": 33,
+      "slug": "la-relacion-ue-argentina-oportunidad-para-una-alianza-energetica-y-comercial-potenciales-desafios-e-inter",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/La relacin UE  Argentina oportunidad para una.html",
+      "score": 0.98,
+      "year": "2025",
+      "chars": 32561,
+      "headings": 10
+    },
+    {
+      "id": 34,
+      "slug": "responsabilidad-medioambiental-en-materia-de-empresas-y-derechos-humanos-existe-una-efectiva-aplicacion-d",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Responsabilidad medioambiental en materia de.html",
+      "score": 0.98,
+      "year": "2024",
+      "chars": 51962,
+      "headings": 17
+    },
+    {
+      "id": 35,
+      "slug": "regulacion-de-la-ia-equilibrio-entre-innovacion-y-seguridad-desafios-y-oportunidades-dentro-del-marco-reg",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Regulacin de la IA.html",
+      "score": 0.98,
+      "year": "2025",
+      "chars": 31458,
+      "headings": 14
+    },
+    {
+      "id": 36,
+      "slug": "el-control-de-convencionalidad-y-el-rol-de-los-gobiernos-subnacionales-implementacion-de-mecanismos-efica",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/El control de convencionalidad y el rol de los.html",
+      "score": 0.98,
+      "year": "2025",
+      "chars": 67691,
+      "headings": 6
+    },
+    {
+      "id": 37,
+      "slug": "el-doble-conforme-en-la-justicia-transicional-colombiana",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/El doble conforme en la justicia transicional.html",
+      "score": 1.0,
+      "year": "2025",
+      "chars": 46221,
+      "headings": 9
+    },
+    {
+      "id": 38,
+      "slug": "las-personas-mayores-y-su-vulnerabilidad-el-acceso-a-la-justicia-y-su-tratamiento-en-el-codigo-procesal-c",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Las personas mayores y su vulnerabilidad_.html",
+      "score": 0.98,
+      "year": "2025",
+      "chars": 64478,
+      "headings": 6
+    },
+    {
+      "id": 39,
+      "slug": "armas-autonomas-reflexion-sobre-riesgos-desde-la-perspectiva-del-dih",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Armas autnomas Reflexin sobre riesgos desde la.html",
+      "score": 1.0,
+      "year": "2025",
+      "chars": 30972,
+      "headings": 11
+    },
+    {
+      "id": 40,
+      "slug": "justicia-en-linea-vulneracion-de-derechos-sexuales-en-casos-de-violencia-de-genero-en-linea-en-peru",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Justicia en lnea Vulneracin de Derechos sexuales.html",
+      "score": 0.98,
+      "year": "2025",
+      "chars": 30384,
+      "headings": 6
+    },
+    {
+      "id": 41,
+      "slug": "critica-juridica-a-la-gestion-del-conflicto-etnico-u-wa-bajo-la-optica-del-pluralismo-juridico",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Crtica jurdica a la gestin del conflicto tnico Uwa.html",
+      "score": 0.98,
+      "year": "2023",
+      "chars": 10325,
+      "headings": 5
+    },
+    {
+      "id": 42,
+      "slug": "injusticia-encubierta-desentranando-los-centros-clandestinos-de-detencion-en-epocas-de-dictadura",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Injusticia encubierta Desentraando los centros.html",
+      "score": 0.98,
+      "year": "2023",
+      "chars": 25956,
+      "headings": 8
+    },
+    {
+      "id": 43,
+      "slug": "la-importancia-de-capacitar-en-violencias-y-discriminaciones-por-motivos-de-genero-en-la-universidad-naci",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/La importancia de capacitar en violencias y.html",
+      "score": 0.98,
+      "year": "2023",
+      "chars": 25679,
+      "headings": 6
+    },
+    {
+      "id": 44,
+      "slug": "delitos-de-lesa-humanidad-contexto-ultima-dictadura-militar-argentina-1976-1983",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Delitos de lesa humanidad  contexto ltima.html",
+      "score": 0.98,
+      "year": "2023",
+      "chars": 25653,
+      "headings": 7
+    },
+    {
+      "id": 45,
+      "slug": "top-7-mejores-herramientas-en-la-mediacion-de-familia",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Top 7 mejores herramientas en la mediacin de.html",
+      "score": 1.0,
+      "year": "2023",
+      "chars": 26287,
+      "headings": 12
+    },
+    {
+      "id": 46,
+      "slug": "la-tutela-sin-cumplimiento-cuando-el-amparo-no-ampara-colombia",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/La tutela sin cumplimiento cuando el amparo no.html",
+      "score": 1.0,
+      "year": "2025",
+      "chars": 28906,
+      "headings": 3
+    },
+    {
+      "id": 47,
+      "slug": "el-impacto-de-la-virtualidad-en-las-oficinas-de-conciliacion-laboral",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/El impacto de la virtualidad en las Oficinas de.html",
+      "score": 1.0,
+      "year": "2023",
+      "chars": 21183,
+      "headings": 9
+    },
+    {
+      "id": 48,
+      "slug": "aplicacion-de-los-incidentes-criticos-a-la-ensenanza-del-derecho",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Aplicacin de los incidentes crticos a la enseanza.html",
+      "score": 1.0,
+      "year": "2025",
+      "chars": 23493,
+      "headings": 6
+    },
+    {
+      "id": 49,
+      "slug": "desarrollo-de-la-experiencia-en-practica-profesional-supervisada-vii-viii-derecho-uncuyo-2024-metodologia",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Desarrollo de la experiencia en Prctica.html",
+      "score": 0.98,
+      "year": "2025",
+      "chars": 15370,
+      "headings": 8
+    },
+    {
+      "id": 50,
+      "slug": "la-practica-desde-el-territorio",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/La prctica desde el territorio.html",
+      "score": 1.0,
+      "year": "2024",
+      "chars": 16666,
+      "headings": 9
+    },
+    {
+      "id": 51,
+      "slug": "derecho-real-de-superficie-reflexiones-en-torno-a-la-indemnizacion-debida-al-superficiario",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Derecho real de superficie reflexiones en torno a.html",
+      "score": 0.98,
+      "year": "2024",
+      "chars": 22830,
+      "headings": 9
+    },
+    {
+      "id": 52,
+      "slug": "caso-gimenez-el-mensaje-detras-de-la-sentencia",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Caso Gimenez El mensaje detrs de la sentencia.html",
+      "score": 1.0,
+      "year": "2024",
+      "chars": 29967,
+      "headings": 5
+    },
+    {
+      "id": 53,
+      "slug": "hablemos-de-honorarios",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Hablemos de honorarios.html",
+      "score": 1.0,
+      "year": "2023",
+      "chars": 17713,
+      "headings": 10
+    },
+    {
+      "id": 54,
+      "slug": "juzgado-de-paz-letrado-de-las-heras-el-servicio-de-justicia-mano-a-mano-con-la-tecnologia-y-las-herramien",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Juzgado de Paz Letrado de Las Heras El servicio de.html",
+      "score": 0.98,
+      "year": "2023",
+      "chars": 26473,
+      "headings": 6
+    },
+    {
+      "id": 55,
+      "slug": "distincion-entre-los-procesos-laboral-y-civil-proceso-de-conocimiento",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Distincin entre los procesos laboral y civil.html",
+      "score": 1.0,
+      "year": "2023",
+      "chars": 30203,
+      "headings": 8
+    },
+    {
+      "id": 56,
+      "slug": "responsabilidad-civil-en-los-espectaculos-publicos-deportivos",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Responsabilidad civil en los espectculos pblicos.html",
+      "score": 1.0,
+      "year": "2023",
+      "chars": 28772,
+      "headings": 12
+    },
+    {
+      "id": 57,
+      "slug": "a-22-anos-de-la-ley-de-firma-digital-una-solucion-a-la-validez-de-documentos-todavia-desconocida-por-la-m",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/A 22 aos de la ley de firma digital una solucin a.html",
+      "score": 0.98,
+      "year": "2023",
+      "chars": 20147,
+      "headings": 15
+    },
+    {
+      "id": 58,
+      "slug": "el-mpf-en-el-marco-de-40-anos-de-democracia",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/El MPF en el marco de 40 aos de democracia.html",
+      "score": 1.0,
+      "year": "2023",
+      "chars": 26572,
+      "headings": 10
+    },
+    {
+      "id": 59,
+      "slug": "el-proceso-de-emision-y-ejecucion-de-oficios-en-el-ambito-legal-un-analisis-comparativo-entre-la-teoria-y",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/El proceso de emisin y ejecucin de oficios en el.html",
+      "score": 0.98,
+      "year": "2023",
+      "chars": 25592,
+      "headings": 10
+    },
+    {
+      "id": 60,
+      "slug": "la-oralidad-y-la-escritura-dos-caras-de-una-misma-moneda",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/La oralidad y la escritura Dos caras de una misma.html",
+      "score": 1.0,
+      "year": "2023",
+      "chars": 27494,
+      "headings": 11
+    },
+    {
+      "id": 61,
+      "slug": "la-cooperacion-internacional-como-respuesta-al-cambio-ambiental",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/La cooperacion internacional como respuesta al.html",
+      "score": 1.0,
+      "year": "2023",
+      "chars": 24594,
+      "headings": 6
+    },
+    {
+      "id": 62,
+      "slug": "el-desafio-en-la-labor-de-los-escribanos-frente-a-la-tecnologia",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/El desafo en la labor de los escribanos frente a.html",
+      "score": 1.0,
+      "year": "2024",
+      "chars": 22559,
+      "headings": 8
+    },
+    {
+      "id": 63,
+      "slug": "el-analisis-juridico-de-las-keywords-en-internet-y-su-impacto-en-marcas-registradas",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/El anlisis jurdico de las keywords en Internet y.html",
+      "score": 0.98,
+      "year": "2023",
+      "chars": 26018,
+      "headings": 10
+    },
+    {
+      "id": 64,
+      "slug": "la-sentencia-de-la-corte-suprema-de-chile-en-girardi-vs-emotiv-y-su-impacto-en-la-proteccion-de-datos-neu",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/La sentencia de la Corte Suprema de Chile en.html",
+      "score": 0.98,
+      "year": "2025",
+      "chars": 29812,
+      "headings": 9
+    },
+    {
+      "id": 65,
+      "slug": "aplicacion-e-incidencia-de-la-inteligencia-artificial-en-la-gestion-universitaria",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Aplicacin e incidencia de la Inteligencia.html",
+      "score": 0.98,
+      "year": "2023",
+      "chars": 30853,
+      "headings": 11
+    },
+    {
+      "id": 66,
+      "slug": "universidad-y-sociedad",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Universidad y Sociedad.html",
+      "score": 1.0,
+      "year": "2025",
+      "chars": 12000,
+      "headings": 0
+    },
+    {
+      "id": 67,
+      "slug": "implementacion-tecno-pedagogica-de-aulas-hibridas-del-aula-posible-al-aula-deseada",
+      "source": "Takeout/Drive/Gaceta Jurídica Bitácora Legal en Acción/PUBLISHED/Implementacin tecno-pedaggica de aulas hbridas_.html",
+      "score": 0.98,
+      "year": "2024",
+      "chars": 23181,
+      "headings": 6
+    }
+  ]
+}
