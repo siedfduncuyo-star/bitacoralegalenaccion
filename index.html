@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#192135">
+  <meta name="description" content="Bitácora Legal en Acción, plataforma de divulgación jurídica de la Facultad de Derecho de la Universidad Nacional de Cuyo.">
+  <title>Bitácora Legal en Acción</title>
+  <link rel="icon" href="assets/img/logo-bitacora.png">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<div class="top-rule" aria-hidden="true"></div>
+<header class="site-header" id="inicio">
+  <div class="container header-inner">
+    <a class="compact-brand" href="#inicio" aria-label="Bitácora Legal en Acción, inicio">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <span>Bitácora <em>Legal en Acción</em></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Navegación principal">
+      <a href="#publicaciones">Publicaciones</a>
+      <a href="#categorias">Categorías</a>
+      <a href="#sobre">Sobre el proyecto</a>
+      <a href="#equipo">Equipo editorial</a>
+      <a class="nav-publish" href="#publicar">Cómo publicar</a>
+    </nav>
+    <button class="menu-button" id="menuButton" aria-expanded="false" aria-controls="mobileNav">Menú</button>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Navegación móvil">
+    <a href="#publicaciones">Publicaciones</a>
+    <a href="#categorias">Categorías</a>
+    <a href="#sobre">Sobre el proyecto</a>
+    <a href="#equipo">Equipo editorial</a>
+    <a href="#publicar">Cómo publicar</a>
+  </nav>
+</header>
+
+<main id="contenido">
+  <section class="hero" aria-labelledby="hero-description">
+    <div class="container hero-inner">
+      <img class="hero-logo" src="assets/img/logo-bitacora.png" alt="Bitácora Legal en Acción">
+      <p id="hero-description" class="hero-description">Una plataforma de divulgación jurídica que integra teoría y práctica y reúne aprendizajes, reflexiones, experiencias y producciones de la comunidad de la Facultad de Derecho de la Universidad Nacional de Cuyo.</p>
+    </div>
+  </section>
+
+  <section class="search-section" id="publicaciones" aria-labelledby="search-title">
+    <div class="container">
+      <div class="search-panel">
+        <div class="search-heading">
+          <div>
+            <p class="micro-label">Archivo de publicaciones</p>
+            <h1 id="search-title">Buscar en Bitácora</h1>
+          </div>
+          <p class="search-help">Buscá por apellido, nombre, título, área o palabras del título.</p>
+        </div>
+        <label class="search-box" for="searchInput">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m1.35-5.65a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input id="searchInput" type="search" autocomplete="off" placeholder="Ej.: Pérez, inteligencia artificial, familia, honorarios…">
+          <kbd>⌕</kbd>
+        </label>
+        <div class="filters" aria-label="Filtros de publicaciones">
+          <label>
+            <span>Área</span>
+            <select id="areaFilter"><option value="">Todas las áreas</option></select>
+          </label>
+          <label>
+            <span>Autor/a</span>
+            <select id="authorFilter"><option value="">Todos/as los autores/as</option></select>
+          </label>
+          <label>
+            <span>Ordenar</span>
+            <select id="sortFilter">
+              <option value="title">Título A–Z</option>
+              <option value="author">Autor/a A–Z</option>
+              <option value="area">Área A–Z</option>
+            </select>
+          </label>
+          <button class="clear-button" id="clearFilters" type="button">Limpiar filtros</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="categories-section" id="categorias" aria-labelledby="categories-title">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="micro-label dark">Explorar</p>
+          <h2 id="categories-title">Buscar por categorías</h2>
+        </div>
+        <span id="categoryCount" class="section-count"></span>
+      </div>
+      <div class="category-grid" id="categoryGrid"></div>
+    </div>
+  </section>
+
+  <section class="catalog-section" aria-labelledby="catalog-title">
+    <div class="container">
+      <div class="catalog-heading">
+        <div>
+          <p class="micro-label dark">Catálogo</p>
+          <h2 id="catalog-title">Todas las publicaciones</h2>
+        </div>
+        <p class="result-count" id="resultCount" aria-live="polite"></p>
+      </div>
+      <div class="active-filter" id="activeFilter" hidden></div>
+      <div class="results" id="results"></div>
+      <div class="empty-state" id="emptyState" hidden>
+        <strong>No encontramos publicaciones con esos criterios.</strong>
+        <span>Probá con otro apellido, palabra o categoría.</span>
+      </div>
+      <div class="load-more-wrap"><button class="load-more" id="loadMore" type="button">Mostrar más publicaciones</button></div>
+    </div>
+  </section>
+
+  <section class="about-section" id="sobre" aria-labelledby="about-title">
+    <div class="container about-grid">
+      <div class="about-title-block">
+        <p class="micro-label dark">Identidad y propósito</p>
+        <h2 id="about-title">Sobre el proyecto</h2>
+        <a class="pill-link" href="https://drive.google.com/file/d/1XwtYUMOcLaeG4Z0qwpuSVQsPfHvFnj8_/view?usp=sharing" target="_blank" rel="noopener">Descargar resolución de aprobación ↗</a>
+      </div>
+      <div class="about-copy">
+        <p>Con el objetivo de <strong>fomentar el intercambio académico</strong> y <strong>enriquecer el conocimiento jurídico</strong>, surge la necesidad de crear una plataforma donde las/os estudiantes puedan compartir sus <strong>aprendizajes, reflexiones y experiencias</strong> derivadas de sus Prácticas Profesionales Supervisadas.</p>
+        <p>Así nace <strong>Bitácora Legal en Acción</strong>, un proyecto destinado a mantener una revista de divulgación científica en el campo del Derecho, proporcionando un espacio dinámico para compartir conocimientos, análisis y perspectivas relacionadas con el mundo jurídico.</p>
+        <h3>Objetivos</h3>
+        <ul class="objectives-list">
+          <li>Proporcionar a las/os estudiantes de Derecho un medio para expresar sus reflexiones y aprendizajes derivados de las Prácticas Profesionales Supervisadas.</li>
+          <li>Fomentar el intercambio de experiencias y conocimientos entre estudiantes a través de artículos y monografías.</li>
+          <li>Contribuir al enriquecimiento del debate académico en temas jurídicos relevantes.</li>
+          <li>Desarrollar habilidades de investigación, escritura y comunicación.</li>
+          <li>Promover la difusión de buenas prácticas y lecciones aprendidas en la aplicación del derecho en contextos reales.</li>
+        </ul>
+        <p>La publicación incluye artículos, monografías, entrevistas con profesionales del derecho, casos prácticos, análisis comparativo, reseñas de jurisprudencia, conclusiones y perspectivas. Bitácora busca <strong>fortalecer la relación entre la teoría y la práctica</strong> en la formación jurídica.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="team-section" id="equipo" aria-labelledby="team-title">
+    <div class="container">
+      <div class="section-heading light">
+        <div><p class="micro-label">Bitácora</p><h2 id="team-title">Equipo editorial</h2></div>
+      </div>
+      <div class="team-grid">
+        <article class="team-card featured"><span>Directoras</span><h3>Cintia Bayardi Martínez</h3><h3>Carla Jael Gomez</h3></article>
+        <article class="team-card"><span>Comité editorial</span><h3>María Belén Renna</h3><h3>Cecilia Alegre</h3><h3>María Florencia Juaire</h3><h3>María Emilia Sandovar</h3></article>
+        <article class="team-card"><span>Gestión documental</span><h3>Diana Miriam Ruiz</h3></article>
+        <article class="team-card"><span>Gestión técnica</span><h3>Esteban Fernández</h3></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="publish-section" id="publicar" aria-labelledby="publish-title">
+    <div class="container publish-grid">
+      <aside class="publish-intro">
+        <p class="micro-label dark">Convocatoria abierta</p>
+        <h2 id="publish-title">Cómo publicar</h2>
+        <p>Los trabajos se reciben por correo electrónico y son evaluados por el equipo editorial. La propuesta está orientada a textos de divulgación jurídica claros, accesibles y con vínculo con la práctica.</p>
+        <a class="email-card" href="mailto:bitacoralegalenaccion@gmail.com"><span>Enviar trabajo a</span><strong>bitacoralegalenaccion@gmail.com</strong></a>
+      </aside>
+      <div class="accordion">
+        <details open>
+          <summary><span>01</span> Perfil editorial</summary>
+          <div class="detail-content"><p>Bitácora Legal en Acción publica textos de <strong>divulgación jurídica</strong>, orientados a comunicar el derecho en <strong>lenguaje claro</strong>, con enfoque práctico y socialmente relevante.</p><ul><li>Ser comprensibles para personas no especialistas.</li><li>Evitar tecnicismos innecesarios.</li><li>Explicar conceptos jurídicos cuando sea necesario.</li></ul></div>
+        </details>
+        <details>
+          <summary><span>02</span> Tipos de contribuciones</summary>
+          <div class="detail-content"><ul><li>Artículos de análisis jurídico vinculados a la experiencia práctica.</li><li>Comentarios a fallos judiciales.</li><li>Análisis de casos prácticos.</li><li>Entrevistas y crónicas jurídicas.</li><li>Columnas de opinión jurídica.</li><li>Notas breves de actualidad jurídica.</li></ul><p>La Dirección Editorial podrá definir secciones específicas en cada edición.</p></div>
+        </details>
+        <details>
+          <summary><span>03</span> Extensión y pautas formales</summary>
+          <div class="detail-content"><p>Los trabajos deberán tener entre <strong>1.000 y 5.000 palabras</strong>. La Dirección Editorial podrá autorizar extensiones excepcionales cuando el tema lo justifique.</p><ul><li>Procesador de texto Word.</li><li>Tamaño A4.</li><li>Fuente Arial, tamaño 12.</li><li>Interlineado 1,5.</li></ul><p>No se exige una estructura rígida de artículo científico tradicional, salvo cuando la Dirección lo determine.</p></div>
+        </details>
+        <details>
+          <summary><span>04</span> Estructura obligatoria del trabajo</summary>
+          <div class="detail-content"><h4>Encabezado</h4><ul><li>Título claro, preciso y sugestivo.</li><li>Nombre completo del autor/a.</li><li>Nivel académico máximo.</li><li>Institución de pertenencia.</li><li>Breve CV y foto.</li><li>Correo electrónico.</li></ul><h4>Resumen</h4><p>Máximo 300 palabras. Debe indicar tema, enfoque o metodología, principales ideas o conclusiones y palabras clave.</p><h4>Desarrollo</h4><p>Debe contextualizar el problema, fundamentar jurídicamente el análisis, vincular teoría y práctica cuando corresponda y utilizar subtítulos.</p><h4>Conclusiones</h4><p>Deben sintetizar aportes principales, reflexiones finales y proyecciones o implicancias prácticas.</p><h4>Referencias</h4><p>Solo se incluirán las fuentes citadas. Se admite sistema de citación simple y, en trabajos de carácter más académico, normas APA.</p></div>
+        </details>
+        <details>
+          <summary><span>05</span> Estilo de escritura</summary>
+          <div class="detail-content"><ul><li>Lenguaje claro y directo.</li><li>Párrafos breves.</li><li>Explicación de términos técnicos cuando sea necesario.</li><li>Uso moderado de citas.</li><li>Enfoque práctico y contextualizado.</li></ul></div>
+        </details>
+        <details>
+          <summary><span>06</span> Originalidad y ética editorial</summary>
+          <div class="detail-content"><ul><li>Los trabajos deben ser originales.</li><li>No se admiten plagios.</li><li>El/la autor/a es responsable exclusivo/a del contenido.</li></ul></div>
+        </details>
+        <details>
+          <summary><span>07</span> Uso de Inteligencia Artificial</summary>
+          <div class="detail-content"><ul><li>Se admite la IA como herramienta de apoyo para corrección, edición u organización del texto.</li><li>La IA no puede sustituir la reflexión jurídica personal.</li><li>El/la autor/a es responsable exclusivo/a del contenido y las opiniones expresadas.</li><li>No se publicarán textos generados íntegramente por IA.</li></ul><p>Cuando el uso haya sido significativo, la Dirección Editorial podrá solicitar una declaración general de su utilización.</p></div>
+        </details>
+        <details>
+          <summary><span>08</span> Publicación y acceso</summary>
+          <div class="detail-content"><ol><li>Recepción del texto.</li><li>Evaluación por el Comité Editorial.</li><li>Devolución con sugerencias si corresponde.</li><li>Revisión por el/la autor/a.</li><li>Edición final y publicación en acceso abierto.</li></ol><p>Todos los contenidos de Bitácora Legal en Acción se publican en <strong>acceso abierto</strong>.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <strong>Bitácora Legal en Acción</strong>
+      <p>Divulgación jurídica, teoría y práctica.</p>
+      <a href="mailto:bitacoralegalenaccion@gmail.com">bitacoralegalenaccion@gmail.com</a>
+    </div>
+    <div class="footer-links">
+      <a href="#publicaciones">Publicaciones</a>
+      <a href="#categorias">Categorías</a>
+      <a href="#sobre">Sobre el proyecto</a>
+      <a href="#equipo">Equipo editorial</a>
+      <a href="#publicar">Cómo publicar</a>
+    </div>
+    <a class="derecho-logo-link" href="https://derecho.uncuyo.edu.ar/" target="_blank" rel="noopener" aria-label="Facultad de Derecho de la Universidad Nacional de Cuyo">
+      <img src="assets/img/logo-derecho.png" alt="UNCUYO — Facultad de Derecho">
+    </a>
+  </div>
+  <div class="container footer-bottom"><span>Facultad de Derecho · Universidad Nacional de Cuyo</span><a href="#inicio">Volver arriba ↑</a></div>
+</footer>
+
+<script src="assets/js/publicaciones.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
