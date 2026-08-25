@@ -37,3 +37,11 @@ La portada utiliza una única caja de búsqueda. Las tarjetas de categorías fun
 - Categorías desplegables en la misma grilla.
 - Catálogo inicial de 5 publicaciones y carga progresiva de 10.
 - Contacto y LinkedIn en el encabezado de cada artículo.
+
+
+## Ajustes de esta versión
+- Resultados de búsqueda inmediatamente debajo del buscador.
+- Filtro por año asociado a Buscar por categorías.
+- Cómo publicar antes de Sobre el proyecto.
+- Equipo editorial como última sección de contenido.
+- Bloque de identidad con logo, separador y frase institucional en azul.

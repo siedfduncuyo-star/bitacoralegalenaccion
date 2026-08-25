@@ -299,3 +299,42 @@ details[open] summary::after{content:"–"}
   .category-article-list{grid-template-columns:1fr}
   .article-contact-hero{display:block}.contact-label{display:block;margin-bottom:7px}.contact-list{display:grid;gap:7px}
 }
+
+
+/* === Ajustes de portada: búsqueda inmediata + categorías por año === */
+.hero{background:#fff;padding:clamp(2rem,5vw,4.1rem) 0;border-bottom:1px solid #e5e0d6}
+.hero-inner{display:grid;grid-template-columns:minmax(220px,430px) 2px minmax(0,1fr);align-items:center;gap:clamp(26px,4.5vw,62px)}
+.hero-logo{width:100%;max-width:430px;height:auto;display:block}
+.hero-divider{display:block;width:2px;height:74%;min-height:96px;background:#192135;opacity:.8}
+.hero-description{margin:0;color:#192135;font-size:clamp(15px,1.45vw,19px);line-height:1.62;font-weight:400;max-width:760px}
+.search-panel{padding-bottom:26px}
+.search-live-results{margin-top:18px;border-top:1px solid rgba(255,255,255,.22);padding-top:15px}
+.search-live-results[hidden]{display:none!important}
+.search-live-head{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:4px}
+.search-live-count{margin:0;color:#d8c08d;font-size:13px;font-weight:800;letter-spacing:.04em}
+.search-clear{border:0;background:transparent;color:#fff;text-decoration:underline;text-underline-offset:3px;cursor:pointer;font:inherit;font-size:13px}
+.search-live-list{display:grid}
+.search-live-list .result-item{border-color:rgba(255,255,255,.18);color:#fff;padding:20px 0}
+.search-live-list .result-item h3 a,.search-live-list .author-name,.search-live-list .open-link{color:#fff}
+.search-live-list .result-item h3 a:hover{color:#d8c08d}
+.search-live-list .author-block>span{color:#bfc6d3}
+.search-live-list .category-chip{border-color:rgba(216,192,141,.55);color:#eadbb8}
+.search-live-list .year-chip{border-left-color:rgba(255,255,255,.25);color:#cdd2db}
+.search-live-empty{padding:22px 0 6px;color:#fff;font-weight:700}
+.category-year-filter{margin:0 0 24px;border:1px solid #d8d1c3;border-radius:14px;padding:15px 17px;background:#fff}
+.category-year-filter legend{padding:0 7px;color:#192135;font-size:12px;font-weight:800;letter-spacing:.075em;text-transform:uppercase}
+.category-year-filter .year-option span{border-color:#c7c0b2;color:#192135;background:#fff}
+.category-year-filter .year-option span:before{border-color:#bf9f65}
+.category-year-filter .year-option input:checked+span{background:#192135;border-color:#192135;color:#fff}
+.category-year-filter .year-option input:checked+span:before{border-color:#d8c08d;color:#d8c08d}
+.publish-section{scroll-margin-top:70px}
+.team-section{scroll-margin-top:70px}
+@media(max-width:760px){
+  .hero-inner{grid-template-columns:1fr;gap:18px}
+  .hero-logo{max-width:330px}
+  .hero-divider{width:100%;height:1px;min-height:0;background:#192135;opacity:.55}
+  .hero-description{max-width:38rem;font-size:15px;line-height:1.55}
+  .search-live-list .result-item{grid-template-columns:1fr auto;gap:12px}
+  .search-live-list .author-block{grid-column:1/-1}
+  .category-year-filter{padding:13px 12px}
+}
