@@ -249,3 +249,53 @@ details[open] summary::after{content:"–"}
 
 .catalog-count-only{display:flex;justify-content:flex-end;align-items:center;border-bottom:1px solid var(--navy);padding-bottom:14px;margin-bottom:0}
 @media (max-width:720px){.catalog-count-only{justify-content:flex-start}}
+
+
+/* === Ajustes Bitácora agosto 2026 === */
+.hero-inner{gap:24px}
+.hero-description{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:clamp(16px,1.55vw,20px);line-height:1.55;letter-spacing:0;font-weight:400;color:#646b78;max-width:920px}
+.search-heading h1{font-size:clamp(29px,3.5vw,42px)}
+.year-filter{border:0;padding:18px 0 0;margin:18px 0 0;border-top:1px solid rgba(255,255,255,.16)}
+.year-filter legend{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#d9c79f;padding:0;margin:0 0 10px}
+.year-options{display:flex;gap:9px;flex-wrap:wrap}
+.year-option{cursor:pointer}
+.year-option input{position:absolute;opacity:0;pointer-events:none}
+.year-option span{display:flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:8px 13px;color:#fff;font-size:14px;font-weight:700;transition:.16s}
+.year-option span:before{content:'';width:14px;height:14px;border:1.5px solid #d9c79f;border-radius:4px;box-sizing:border-box}
+.year-option input:checked+span{background:#bf9f65;border-color:#bf9f65;color:#192135}
+.year-option input:checked+span:before{content:'✓';display:grid;place-items:center;border-color:#192135;font-size:11px;line-height:1;font-weight:900}
+.year-option input:focus-visible+span{outline:3px solid rgba(191,159,101,.4);outline-offset:2px}
+.category-grid{align-items:stretch}
+.category-card{cursor:pointer}
+.category-expansion{grid-column:1/-1;background:#192135;color:#fff;padding:30px;border-bottom:1px solid #192135;animation:categoryReveal .16s ease-out}
+@keyframes categoryReveal{from{opacity:.35;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.category-expansion-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.18)}
+.category-expansion-head span{display:block;color:#d7c69e;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;margin-bottom:5px}
+.category-expansion-head h3{font-family:Georgia,"Times New Roman",serif;font-size:clamp(25px,3vw,35px);font-weight:400;margin:0}
+.category-close{border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;border-radius:999px;padding:8px 12px;cursor:pointer}
+.category-article-list{display:grid;grid-template-columns:1fr 1fr;column-gap:30px}
+.category-article-list>a{display:flex;justify-content:space-between;gap:18px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.14);text-decoration:none;color:#fff}
+.category-article-list>a:hover strong{text-decoration:underline;text-decoration-color:#bf9f65;text-underline-offset:4px}
+.category-article-list strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:18px;font-weight:400;line-height:1.25}
+.category-article-list small{display:block;color:#bdc3cf;margin-top:5px;font-size:12px}
+.category-article-list em{color:#d8c08d;font-style:normal;font-size:13px;white-space:nowrap}
+.category-empty{margin:22px 0 0;color:#c9ced8}
+.catalog-heading h2{max-width:800px}
+.article-contact-hero{display:flex;gap:12px;align-items:flex-start;margin-top:.85rem;color:#f5efe1;font-size:.9rem}
+.contact-label{color:#d8c08d;font-weight:800;min-width:max-content}
+.contact-list{display:flex;flex-wrap:wrap;gap:8px 18px}
+.contact-item{display:inline-flex;align-items:center;gap:7px}
+.contact-item>a:not(.linkedin-link){color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35)}
+.contact-item>a:not(.linkedin-link):hover{border-bottom-color:#d8c08d}
+.linkedin-link{display:inline-flex;width:20px;height:20px;border-radius:4px;overflow:hidden;flex:none}
+.linkedin-link img{display:block;width:100%;height:100%;object-fit:cover}
+.article-toc summary{white-space:nowrap}
+.article-toc{margin-bottom:2rem}
+@media(max-width:720px){
+  .hero-description{font-size:15.5px;line-height:1.55;max-width:34rem}
+  .year-options{gap:7px}.year-option span{padding:7px 10px;font-size:13px}
+  .category-expansion{padding:22px 16px}
+  .category-expansion-head{align-items:center}
+  .category-article-list{grid-template-columns:1fr}
+  .article-contact-hero{display:block}.contact-label{display:block;margin-bottom:7px}.contact-list{display:grid;gap:7px}
+}

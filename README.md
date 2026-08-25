@@ -29,3 +29,11 @@ Exportación Google Takeout recibida el 20/08/2026.
 
 ## Búsqueda
 La portada utiliza una única caja de búsqueda. Las tarjetas de categorías funcionan como accesos directos: al seleccionarlas, cargan el nombre del área en la búsqueda y muestran el catálogo correspondiente.
+
+
+## Ajustes de navegación (agosto 2026)
+- Buscador autocontenido en `index.html` por título, autoría, categoría, año y contenido.
+- Filtro por año mediante casillas múltiples.
+- Categorías desplegables en la misma grilla.
+- Catálogo inicial de 5 publicaciones y carga progresiva de 10.
+- Contacto y LinkedIn en el encabezado de cada artículo.
