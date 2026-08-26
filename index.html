@@ -55,7 +55,7 @@
 </div>
 <span class="section-count" id="categoryCount">22 categorías</span>
 </div>
-<fieldset class="category-year-filter" id="yearFilters"><legend>Filtrar categorías por año</legend><div class="year-options"><label class="year-option"><input name="year" type="checkbox" value="2026"/><span>2026</span></label><label class="year-option"><input name="year" type="checkbox" value="2025"/><span>2025</span></label><label class="year-option"><input name="year" type="checkbox" value="2024"/><span>2024</span></label><label class="year-option"><input name="year" type="checkbox" value="2023"/><span>2023</span></label></div></fieldset><div class="category-grid" id="categoryGrid"></div>
+<fieldset class="category-year-filter" id="yearFilters"><legend>Filtrar categorías por año</legend><div class="year-options" id="yearOptions"></div></fieldset><div class="category-grid" id="categoryGrid"></div>
 </div>
 </section>
 <section aria-labelledby="catalog-title" class="catalog-section" id="catalogo">
@@ -179,7 +179,7 @@ const BITACORA_CATEGORIES=["Derecho Administrativo","Derecho Civil y Comercial",
   const esc=(v='')=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const norm=(v='')=>String(v).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9ñü\s]/gi,' ').replace(/\s+/g,' ').trim();
   const data=BITACORA_DATA;
-  const sortNewest=(a,b)=>Number(b.year||0)-Number(a.year||0) || Number(b.id||0)-Number(a.id||0) || a.title.localeCompare(b.title,'es');
+  const sortNewest=(a,b)=>{const da=a.date||`${a.year||'0000'}-01-01`,db=b.date||`${b.year||'0000'}-01-01`;return db.localeCompare(da)||Number(b.id||0)-Number(a.id||0)||a.title.localeCompare(b.title,'es');};
   const search=$('#searchInput'), liveWrap=$('#searchLiveResults'), liveList=$('#searchLiveList'), liveCount=$('#searchLiveCount'), liveEmpty=$('#searchLiveEmpty'), searchClear=$('#searchClear');
   const catalogResults=$('#results'), catalogCount=$('#resultCount'), catalogMore=$('#loadMore'), grid=$('#categoryGrid'), catCount=$('#categoryCount');
   let shown=5, openCategory='';
@@ -211,6 +211,7 @@ const BITACORA_CATEGORIES=["Derecho Administrativo","Derecho Civil y Comercial",
     catalogMore.hidden=shown>=catalog.length;
   }
 
+  function renderYearOptions(){const wrap=$('#yearOptions');if(!wrap)return;const years=[...new Set(data.map(p=>String(p.year||'')).filter(Boolean))].sort((a,b)=>Number(b)-Number(a));wrap.innerHTML=years.map(y=>`<label class="year-option"><input name="year" type="checkbox" value="${esc(y)}"/><span>${esc(y)}</span></label>`).join('');}
   const selectedYears=()=>$$('#yearFilters input[type=checkbox]:checked').map(i=>i.value);
   function categoryArticles(area) {
     const years=selectedYears();
@@ -249,7 +250,7 @@ const BITACORA_CATEGORIES=["Derecho Administrativo","Derecho Civil y Comercial",
 
   const params=new URLSearchParams(location.search), requested=params.get('categoria');
   if(requested&&BITACORA_CATEGORIES.includes(requested))openCategory=requested;
-  renderCategories(); renderCatalog(); runSearch();
+  renderYearOptions(); renderCategories(); renderCatalog(); runSearch();
 
   const menuButton=$('#menuButton'), mobileNav=$('#mobileNav');
   if(menuButton&&mobileNav){
