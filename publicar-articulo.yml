@@ -1,0 +1,79 @@
+name: Publicar artículo de Bitácora
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  publicar:
+    if: github.event.label.name == 'publicar'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verificar permiso de quien aprueba
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data } = await github.rest.repos.getCollaboratorPermissionLevel({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              username: context.actor
+            });
+            const allowed = ['admin', 'maintain', 'write'].includes(data.permission);
+            if (!allowed) core.setFailed('La etiqueta publicar sólo puede ser aplicada por una persona con permiso de escritura en el repositorio.');
+
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar dependencias
+        run: pip install "mistune>=3,<4" "beautifulsoup4==4.12.3" "bleach==6.2.0"
+
+      - name: Generar publicación
+        env:
+          BITACORA_EVENT_PATH: ${{ github.event_path }}
+        run: python scripts/publicar_articulo.py
+
+      - name: Guardar cambios
+        run: |
+          git config user.name "Bitácora Editorial Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html assets/js/publicaciones.js articulos/
+          if git diff --cached --quiet; then
+            echo "No hay cambios para publicar."
+            exit 0
+          fi
+          git commit -m "Publica artículo desde carga editorial #${{ github.event.issue.number }}"
+          git push
+
+      - name: Comentar y cerrar la carga
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let result = {};
+            try { result = JSON.parse(fs.readFileSync('publication-result.json', 'utf8')); } catch (e) {}
+            const path = result.localUrl || '';
+            const base = `https://${context.repo.owner}.github.io/${context.repo.repo}/`;
+            const url = path ? base + path : base;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `✅ Artículo publicado.\n\n${url}\n\nGitHub Pages puede tardar uno o dos minutos en reflejar el cambio.`
+            });
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'closed'
+            });

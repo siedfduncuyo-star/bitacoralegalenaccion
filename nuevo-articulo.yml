@@ -1,0 +1,199 @@
+name: Cargar nuevo artículo
+description: Formulario editorial para incorporar una publicación a Bitácora Legal en Acción.
+title: "[ARTÍCULO] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Nueva publicación
+        Completá los datos tal como deben verse en el sitio. El artículo **no se publica al enviar este formulario**: primero debe ser revisado y aprobado por una persona autorizada agregando la etiqueta `publicar`.
+
+  - type: input
+    id: titulo
+    attributes:
+      label: Título del artículo
+      placeholder: Título completo
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: Tipo de contribución
+      options:
+        - Artículo de análisis jurídico
+        - Comentario a fallo judicial
+        - Análisis de caso práctico
+        - Entrevista o crónica jurídica
+        - Columna de opinión jurídica
+        - Nota breve de actualidad jurídica
+        - Otro
+    validations:
+      required: true
+
+  - type: input
+    id: fecha
+    attributes:
+      label: Fecha de publicación
+      description: Usar formato AAAA-MM-DD. Esta fecha determina el orden de “Últimas publicaciones”.
+      placeholder: "2026-08-26"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: categorias
+    attributes:
+      label: Categoría o categorías
+      description: Se puede seleccionar más de una.
+      multiple: true
+      options:
+        - Derecho Administrativo
+        - Derecho Civil y Comercial
+        - Derecho Constitucional
+        - Derecho de Familia y Sucesorio
+        - Derecho de los Recursos Naturales, Aguas; y Protección del Medio Ambiente
+        - Derecho del Consumidor y Defensa de la Competencia
+        - Derecho del Trabajo y la Seguridad Social
+        - Derecho Informático
+        - Derecho Internacional
+        - Derecho Penal
+        - Derecho Político
+        - Derecho Procesal
+        - Derecho Registral y Notarial
+        - Derechos Humanos
+        - Derechos Reales
+        - Enseñanza del Derecho
+        - Filosofía del Derecho
+        - Mediación
+        - Miscelánea
+        - Pluralismo Jurídico y Gobernanza
+        - Sociología del Derecho
+        - Tecnologías aplicadas al Derecho
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "### Autoría 1"
+
+  - type: input
+    id: autor1
+    attributes:
+      label: Autor/a 1 — Nombre completo
+      placeholder: Nombre y apellido
+    validations:
+      required: true
+
+  - type: input
+    id: email1
+    attributes:
+      label: Autor/a 1 — Correo electrónico
+      placeholder: nombre@correo.com
+
+  - type: input
+    id: linkedin1
+    attributes:
+      label: Autor/a 1 — LinkedIn
+      description: URL completa del perfil. Dejar vacío si no tiene.
+      placeholder: https://www.linkedin.com/in/...
+
+  - type: textarea
+    id: cv1
+    attributes:
+      label: Autor/a 1 — Breve CV
+      description: Texto breve que aparecerá en “Sobre la autoría”.
+
+  - type: markdown
+    attributes:
+      value: "### Autoría 2 (opcional)"
+
+  - type: input
+    id: autor2
+    attributes:
+      label: Autor/a 2 — Nombre completo
+
+  - type: input
+    id: email2
+    attributes:
+      label: Autor/a 2 — Correo electrónico
+
+  - type: input
+    id: linkedin2
+    attributes:
+      label: Autor/a 2 — LinkedIn
+
+  - type: textarea
+    id: cv2
+    attributes:
+      label: Autor/a 2 — Breve CV
+
+  - type: markdown
+    attributes:
+      value: "### Autoría 3 (opcional)"
+
+  - type: input
+    id: autor3
+    attributes:
+      label: Autor/a 3 — Nombre completo
+
+  - type: input
+    id: email3
+    attributes:
+      label: Autor/a 3 — Correo electrónico
+
+  - type: input
+    id: linkedin3
+    attributes:
+      label: Autor/a 3 — LinkedIn
+
+  - type: textarea
+    id: cv3
+    attributes:
+      label: Autor/a 3 — Breve CV
+
+  - type: textarea
+    id: resumen
+    attributes:
+      label: Resumen
+      description: Máximo recomendado: 300 palabras.
+      placeholder: Resumen del trabajo…
+    validations:
+      required: true
+
+  - type: input
+    id: palabras_clave
+    attributes:
+      label: Palabras clave
+      description: Separadas por comas.
+      placeholder: derechos reales, buena fe, propiedad
+
+  - type: textarea
+    id: cuerpo
+    attributes:
+      label: Texto completo del artículo
+      description: |
+        Podés usar subtítulos con `## Subtítulo` y `### Subtítulo`. Para agregar imágenes, pegá o arrastrá la imagen dentro de este campo: GitHub insertará automáticamente el enlace. También admite negritas, cursivas, listas y enlaces en Markdown.
+      placeholder: |
+        ## Introducción
+        Texto del artículo…
+
+        ## Desarrollo
+        …
+    validations:
+      required: true
+
+  - type: textarea
+    id: referencias
+    attributes:
+      label: Referencias / Bibliografía
+      description: Una referencia por línea. Puede dejarse vacío cuando el tipo de publicación no la requiera.
+
+  - type: checkboxes
+    id: declaracion
+    attributes:
+      label: Declaración editorial
+      options:
+        - label: Confirmo que el texto fue revisado y está listo para evaluación editorial.
+          required: true
+        - label: Confirmo que cuento con autorización para publicar las imágenes y materiales incluidos.
+          required: true
